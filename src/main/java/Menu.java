@@ -1,5 +1,6 @@
 /**
  * @author Alex Saez Lopez
+ * @version v0.2
  * En aquesta class disposem dels menus del joc
  * Tenim tant el menu principal com el menu que surt al demanar participants/circuits i el de vehicles
  */

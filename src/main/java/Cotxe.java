@@ -1,5 +1,6 @@
 /**
  * @author Alex Saez Lopez
+ * @version v0.2
  * Aquesta class es d'un objecte "Cotxe" que es heredat de la class "Vehicle"
  * Les seves propietats privades son "Marca" i "Model"
  */

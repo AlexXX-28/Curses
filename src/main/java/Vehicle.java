@@ -1,5 +1,6 @@
 /**
  * @author Alex Saez Lopez
+ * @version v0.2
  * La class Vehicle es de la que hereden les altres class com (Bicileta/Cotxe)
  * Te una propietat que es pilot que es un objecte de la class "Pilot"
  */

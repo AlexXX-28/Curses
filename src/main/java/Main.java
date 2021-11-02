@@ -1,5 +1,6 @@
 /**
  * @author Alex Saez Lopez
+ * @version v0.2
  * Aquesta es la class principal, on nomes tenim l'inicialitzacio d'un nou "Game"
  * Amb la funcio "start" que inicialitza un nou joc
  */

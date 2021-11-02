@@ -1,5 +1,6 @@
 /**
  * @author Alex Saez Lopez
+ * @version v0.2
  * Aquesta class es d'un objecte "Bicicleta" que es heredat de la class "Vehicle"
  * Nomes te una propietat (int vel) i ve heredada de la class "Vehicle"
  */

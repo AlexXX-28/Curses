@@ -1,5 +1,6 @@
 /**
  * @author Alex Saez Lopez
+ * @version v0.2
  * La class Pilot ens indica el nom, nivell i punts que tindra el pilot d'un vehicle determinat
  */
 

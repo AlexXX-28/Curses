@@ -1,5 +1,6 @@
 /**
  * @author Alex Saez Lopez
+ * @version v0.2
  * En aquesta class tenim la configuracio del joc
  * Tenim les funcions que ens permeten obtenir i establir el numero de voltes i corredors
  * Tambe tenim la configuracio del username

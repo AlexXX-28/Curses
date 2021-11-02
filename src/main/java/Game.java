@@ -1,5 +1,6 @@
 /**
  * @author Alex Saez Lopez
+ * @version v0.2
  * Es la class del joc, on hi ha tot el funcionament del joc, tant
  */
 
