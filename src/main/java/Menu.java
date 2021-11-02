@@ -1,3 +1,11 @@
+/**
+ * @author Alex Saez Lopez
+ * En aquesta class disposem dels menus del joc
+ * Tenim tant el menu principal com el menu que surt al demanar participants/circuits i el de vehicles
+ */
+
+package main.java;
+
 import java.util.Scanner;
 
 public class Menu {
@@ -6,12 +14,20 @@ public class Menu {
     ConfigGame configGame;
     Game game;
 
+    /**
+     * El constructor de la class "Menu"
+     * @param game Es un objecte de la class "Game" que es el que te el funcionament principal del joc
+     * @param config Es un objecte de la class "ConfigGame" que es la configuracio del joc
+     */
     public Menu(Game game, ConfigGame config) {
         opcio = -1;
         this.game = game;
         configGame = config;
     }
 
+    /**
+     * Tenim el printat del menu principal i les seves diferents opcions
+     */
     public void menuPrincipal() {
         do {
             System.out.println("1. Configuració : " + configGame);
@@ -42,6 +58,10 @@ public class Menu {
         }while(opcio != 0);
     }
 
+    /**
+     * Ens permet configurar el joc
+     * Tant entrar el nostre nom, com el numero de participants, i el numero de circuits
+     */
     public void setConfig() {
         System.out.println("Entra el teu nom: ");
         String n = in.nextLine();
@@ -54,6 +74,9 @@ public class Menu {
         in.nextLine();
     }
 
+    /**
+     * Ens permet triar el vehicle amb el que volem participar
+     */
     public void play() {
         System.out.println("Amb quin vehicle vols fer el campionat?");
         System.out.println("1) Bicicletes");

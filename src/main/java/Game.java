@@ -1,3 +1,10 @@
+/**
+ * @author Alex Saez Lopez
+ * Es la class del joc, on hi ha tot el funcionament del joc, tant
+ */
+
+package main.java;
+
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -15,32 +22,53 @@ public class Game {
     private Vehicle[] participants;
     List<ResultatsCursa> resultatsCursa = new ArrayList<>();
     ResultatsCursa resul = new ResultatsCursa();
-    //definició de les puntuacions als primers 3 classificats
+
+    /**
+     * Definicio de les puntuacions dels 3 primers classificats (1er - 10 | 2on - 8 | 3er - 5)
+     */
     private int[] puntuacions = {10,8,5};
 
+    /**
+     * Tenim la class RecsultatsCursa que te el temps i l'objecte Vehicle
+     */
     class ResultatsCursa {
         double temps;
         Vehicle vehicle;
     }
 
+    /**
+     * El constructor de la class Game
+     */
     public Game() {
         config = new ConfigGame();
         menu = new Menu(this,config);
     }
 
+    /**
+     * La funcio start ens permet començar el joc, per tant crida a la funcio del menu principal
+     */
     public void start() {
         menu.menuPrincipal();
     }
 
+    /**
+     * Aquesta funcio ens permet jugar al joc ja que tenim la creacio dels objectes Vehicle que son els participants
+     * També tenim la inici del circuit, el temps que fa cada corredor, la classificacio i l'entrega de punts
+     * @todo Refactoritzar i modular el metode play
+     * @param tipus
+     */
     public void play(int tipus)  {
-        //pendent per fer: refactoritzar i modular el mètode play
         System.out.println(config);
 
-        //crear participant usuari i resta de participants
+        /**
+         * Crear participant usuari i resta de participants
+         */
         participants = new Vehicle[config.getNumRunners()];
         addParticipants(tipus);
 
-        //comença la cursa
+        /**
+         * Comença la cursa
+         */
         System.out.println("Pilots a la graella de sortida...");
         for(int i=0; i<participants.length; i++) {
             System.out.printf("%s ",participants[i].getPilot().getNom());
@@ -51,19 +79,27 @@ public class Game {
             e.printStackTrace();
         }
         System.out.println();
-        //Recorregut per tots els circuits
+        /**
+         * Recorregut per tots els circuits
+         */
         for(int i=0; i<config.getNumTracks(); i++) {
             System.out.println("Prem un tecla per iniciar el circuit " + i);
             sc.nextLine();
             System.out.println(ANSI_YELLOW + "Circuit " + i + ANSI_RESET);
-            //simulació del temps que ha fet cada vehicle
+            /**
+             * Simulació del temps que ha fet cada vehicle
+             */
             for (int t = 0; t < config.getNumRunners(); t++) {
                 resultatsCursa.get(t).temps = (Math.random() * 10000 + 3000);
             }
 
-            //ordenar classificació
+            /**
+             * Ordenar classificacio
+             */
             resultatsCursa.sort((o1, o2) -> (int) (o1.temps - o2.temps));
-            //donar punts
+            /**
+             * Donar punts
+             */
             for(int p=0; p < resultatsCursa.size() && p<3; p++) {
                 resultatsCursa.get(p).vehicle.getPilot().addPunts(puntuacions[p]);
                 double t = resultatsCursa.get(p).temps;
@@ -77,7 +113,11 @@ public class Game {
 
     }
 
-    //pendent per fer: refactoritzar el codi repetit
+    /**
+     * En aquesta funcio podem afegir participants
+     * @todo Refactoritzar el codi repetit
+     * @param tipus
+     */
     private void addParticipants(int tipus) {
 
         switch (tipus) {
@@ -98,8 +138,13 @@ public class Game {
         }
     }
 
+    /**
+     * En aquesta funcio tenim el printat del resultat final
+     */
     public void finalResults() {
-        //ordenar per punts
+        /**
+         * Ordenar per punts
+         */
         resultatsCursa.sort((o1, o2) -> (int) (o2.vehicle.getPilot().getPunts() - o1.vehicle.getPilot().getPunts()));
         for(int i = 0; i < resultatsCursa.size(); i++) {
             ResultatsCursa r = resultatsCursa.get(i);
@@ -110,10 +155,16 @@ public class Game {
         System.out.println();
     }
 
+    /**
+     * En aquesta funcio podem netejar els resultats de la cursa
+     */
     public void initResults() {
         resultatsCursa.clear();
     }
 
+    /**
+     * En aquesta funcio podem establir els participants
+     */
     private void setParticipants() {
         participants[0].setPilot(new Pilot(config.getUserName()));
         resul.vehicle = participants[0];
@@ -127,9 +178,10 @@ public class Game {
         }
     }
 
+    /**
+     * @todo Pendent de fer tot
+     */
     private void eliminarDarrerClassificat() {
-      //pendent  
+
     }
-
-
 }
