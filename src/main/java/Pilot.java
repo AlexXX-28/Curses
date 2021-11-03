@@ -25,10 +25,11 @@ public class Pilot {
 	 * Ara tractem els punts de forma diferent
 	 * @deprecated Els punts ja no son String
 	 */
+/*
 	public Pilot(String punts) {
 		this.punts = punts;
 	}
-
+*/
 	/**
 	 * Ens permet obtenir el nom
 	 * @return Ens retorna el nom del pilot
